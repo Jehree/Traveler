@@ -1,0 +1,41 @@
+{
+	"info": {
+		"id": "8b40877589291a472bc55c36",
+		"username": "newerdevboi",
+		"password": "",
+		"wipe": true,
+		"edition": "SPT Developer"
+	},
+	"characters": {
+		"pmc": {},
+		"scav": {}
+	},
+	"vitality": {
+		"health": {
+			"Hydration": 0,
+			"Energy": 0,
+			"Temperature": 0,
+			"Head": 0,
+			"Chest": 0,
+			"Stomach": 0,
+			"LeftArm": 0,
+			"RightArm": 0,
+			"LeftLeg": 0,
+			"RightLeg": 0
+		},
+		"effects": {
+			"Head": {},
+			"Chest": {},
+			"Stomach": {},
+			"LeftArm": {},
+			"RightArm": {},
+			"LeftLeg": {},
+			"RightLeg": {}
+		}
+	},
+	"inraid": {
+		"location": "none",
+		"character": "none"
+	},
+	"insurance": []
+}

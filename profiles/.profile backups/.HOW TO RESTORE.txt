@@ -1,0 +1,3 @@
+To restore a profile, open a backup folder at a date and time you'd like to restore.
+-Copy the [your profile id here].json file into your user/profiles folder (overwrite the existing one there)
+-Copy the folder that contains your statuses.json and stashes folder to user/mods/Traveler/profiles (overwrite the existing one there)

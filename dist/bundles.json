@@ -1,0 +1,12 @@
+{
+    "manifest": [
+        {
+            "key": "checkpoint_voucher/checkpoint_voucher.bundle",
+            "dependencyKeys": [
+                "assets/commonassets/physics/physicsmaterials.bundle",
+                "shaders",
+                "cubemaps"
+            ]
+        }
+    ]
+}

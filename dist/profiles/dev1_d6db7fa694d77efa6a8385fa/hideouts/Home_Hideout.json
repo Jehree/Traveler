@@ -1,0 +1,476 @@
+{
+    "Name": "Home_Hideout",
+    "Areas": [
+        {
+            "active": true,
+            "completeTime": 0,
+            "constructing": false,
+            "lastRecipe": "",
+            "level": 4,
+            "passiveBonusesEnabled": true,
+            "slots": [],
+            "type": 3
+        },
+        {
+            "active": true,
+            "completeTime": 0,
+            "constructing": false,
+            "lastRecipe": "",
+            "level": 3,
+            "passiveBonusesEnabled": true,
+            "slots": [],
+            "type": 0
+        },
+        {
+            "active": true,
+            "completeTime": 0,
+            "constructing": false,
+            "lastRecipe": "",
+            "level": 3,
+            "passiveBonusesEnabled": true,
+            "slots": [],
+            "type": 1
+        },
+        {
+            "active": true,
+            "completeTime": 0,
+            "constructing": false,
+            "lastRecipe": "",
+            "level": 3,
+            "passiveBonusesEnabled": true,
+            "slots": [],
+            "type": 2
+        },
+        {
+            "active": false,
+            "completeTime": 0,
+            "constructing": false,
+            "lastRecipe": "",
+            "level": 3,
+            "passiveBonusesEnabled": true,
+            "slots": [
+                {
+                    "locationIndex": 0
+                },
+                {
+                    "locationIndex": 1
+                },
+                {
+                    "locationIndex": 2
+                },
+                {
+                    "locationIndex": 3
+                },
+                {
+                    "locationIndex": 4
+                },
+                {
+                    "locationIndex": 5
+                },
+                {
+                    "locationIndex": 6
+                },
+                {
+                    "locationIndex": 7
+                }
+            ],
+            "type": 4
+        },
+        {
+            "active": true,
+            "completeTime": 0,
+            "constructing": false,
+            "lastRecipe": "",
+            "level": 3,
+            "passiveBonusesEnabled": true,
+            "slots": [],
+            "type": 5
+        },
+        {
+            "active": true,
+            "completeTime": 0,
+            "constructing": false,
+            "lastRecipe": "",
+            "level": 3,
+            "passiveBonusesEnabled": true,
+            "slots": [
+                {
+                    "locationIndex": 0
+                },
+                {
+                    "locationIndex": 1
+                },
+                {
+                    "locationIndex": 2
+                }
+            ],
+            "type": 6
+        },
+        {
+            "active": true,
+            "completeTime": 0,
+            "constructing": false,
+            "lastRecipe": "",
+            "level": 3,
+            "passiveBonusesEnabled": true,
+            "slots": [],
+            "type": 7
+        },
+        {
+            "active": true,
+            "completeTime": 0,
+            "constructing": false,
+            "lastRecipe": "",
+            "level": 3,
+            "passiveBonusesEnabled": true,
+            "slots": [],
+            "type": 8
+        },
+        {
+            "active": true,
+            "completeTime": 0,
+            "constructing": false,
+            "lastRecipe": "",
+            "level": 3,
+            "passiveBonusesEnabled": true,
+            "slots": [],
+            "type": 9
+        },
+        {
+            "active": true,
+            "completeTime": 0,
+            "constructing": false,
+            "lastRecipe": "",
+            "level": 3,
+            "passiveBonusesEnabled": true,
+            "slots": [],
+            "type": 10
+        },
+        {
+            "active": true,
+            "completeTime": 0,
+            "constructing": false,
+            "lastRecipe": "",
+            "level": 3,
+            "passiveBonusesEnabled": true,
+            "slots": [],
+            "type": 11
+        },
+        {
+            "active": true,
+            "completeTime": 0,
+            "constructing": false,
+            "lastRecipe": "",
+            "level": 3,
+            "passiveBonusesEnabled": true,
+            "slots": [],
+            "type": 12
+        },
+        {
+            "active": true,
+            "completeTime": 0,
+            "constructing": false,
+            "lastRecipe": "",
+            "level": 1,
+            "passiveBonusesEnabled": true,
+            "slots": [],
+            "type": 13
+        },
+        {
+            "active": true,
+            "completeTime": 0,
+            "constructing": false,
+            "lastRecipe": "",
+            "level": 1,
+            "passiveBonusesEnabled": true,
+            "slots": [],
+            "type": 14
+        },
+        {
+            "active": true,
+            "completeTime": 0,
+            "constructing": false,
+            "lastRecipe": "",
+            "level": 3,
+            "passiveBonusesEnabled": true,
+            "slots": [],
+            "type": 15
+        },
+        {
+            "active": true,
+            "completeTime": 0,
+            "constructing": false,
+            "lastRecipe": "",
+            "level": 1,
+            "passiveBonusesEnabled": true,
+            "slots": [],
+            "type": 16
+        },
+        {
+            "active": true,
+            "completeTime": 0,
+            "constructing": false,
+            "lastRecipe": "",
+            "level": 1,
+            "passiveBonusesEnabled": false,
+            "slots": [
+                {
+                    "locationIndex": 0
+                },
+                {
+                    "locationIndex": 1
+                },
+                {
+                    "locationIndex": 2
+                },
+                {
+                    "locationIndex": 3
+                },
+                {
+                    "locationIndex": 4
+                }
+            ],
+            "type": 17
+        },
+        {
+            "active": true,
+            "completeTime": 0,
+            "constructing": false,
+            "lastRecipe": "",
+            "level": 1,
+            "passiveBonusesEnabled": true,
+            "slots": [],
+            "type": 18
+        },
+        {
+            "active": true,
+            "completeTime": 0,
+            "constructing": false,
+            "lastRecipe": "",
+            "level": 1,
+            "passiveBonusesEnabled": true,
+            "slots": [],
+            "type": 19
+        },
+        {
+            "active": true,
+            "completeTime": 0,
+            "constructing": false,
+            "lastRecipe": "",
+            "level": 3,
+            "passiveBonusesEnabled": true,
+            "slots": [
+                {
+                    "locationIndex": 0
+                },
+                {
+                    "locationIndex": 1
+                },
+                {
+                    "locationIndex": 2
+                },
+                {
+                    "locationIndex": 3
+                },
+                {
+                    "locationIndex": 4
+                },
+                {
+                    "locationIndex": 5
+                },
+                {
+                    "locationIndex": 6
+                },
+                {
+                    "locationIndex": 7
+                },
+                {
+                    "locationIndex": 8
+                },
+                {
+                    "locationIndex": 9
+                },
+                {
+                    "locationIndex": 10
+                },
+                {
+                    "locationIndex": 11
+                },
+                {
+                    "locationIndex": 12
+                },
+                {
+                    "locationIndex": 13
+                },
+                {
+                    "locationIndex": 14
+                },
+                {
+                    "locationIndex": 15
+                },
+                {
+                    "locationIndex": 16
+                },
+                {
+                    "locationIndex": 17
+                },
+                {
+                    "locationIndex": 18
+                },
+                {
+                    "locationIndex": 19
+                },
+                {
+                    "locationIndex": 20
+                },
+                {
+                    "locationIndex": 21
+                },
+                {
+                    "locationIndex": 22
+                },
+                {
+                    "locationIndex": 23
+                },
+                {
+                    "locationIndex": 24
+                },
+                {
+                    "locationIndex": 25
+                },
+                {
+                    "locationIndex": 26
+                },
+                {
+                    "locationIndex": 27
+                },
+                {
+                    "locationIndex": 28
+                },
+                {
+                    "locationIndex": 29
+                },
+                {
+                    "locationIndex": 30
+                },
+                {
+                    "locationIndex": 31
+                },
+                {
+                    "locationIndex": 32
+                },
+                {
+                    "locationIndex": 33
+                },
+                {
+                    "locationIndex": 34
+                },
+                {
+                    "locationIndex": 35
+                },
+                {
+                    "locationIndex": 36
+                },
+                {
+                    "locationIndex": 37
+                },
+                {
+                    "locationIndex": 38
+                },
+                {
+                    "locationIndex": 39
+                },
+                {
+                    "locationIndex": 40
+                },
+                {
+                    "locationIndex": 41
+                },
+                {
+                    "locationIndex": 42
+                },
+                {
+                    "locationIndex": 43
+                },
+                {
+                    "locationIndex": 44
+                },
+                {
+                    "locationIndex": 45
+                },
+                {
+                    "locationIndex": 46
+                },
+                {
+                    "locationIndex": 47
+                },
+                {
+                    "locationIndex": 48
+                },
+                {
+                    "locationIndex": 49
+                }
+            ],
+            "type": 20
+        },
+        {
+            "active": true,
+            "completeTime": 0,
+            "constructing": false,
+            "lastRecipe": "",
+            "level": 1,
+            "passiveBonusesEnabled": true,
+            "slots": [],
+            "type": 21
+        },
+        {
+            "active": true,
+            "completeTime": 0,
+            "constructing": false,
+            "lastRecipe": "",
+            "level": 6,
+            "passiveBonusesEnabled": true,
+            "slots": [],
+            "type": 22
+        },
+        {
+            "active": true,
+            "completeTime": 0,
+            "constructing": false,
+            "lastRecipe": "",
+            "level": 1,
+            "passiveBonusesEnabled": true,
+            "slots": [],
+            "type": 23
+        }
+    ],
+    "Improvements": {
+        "639199277a9178252d38c98f": {
+            "completed": true,
+            "improveCompleteTimestamp": 1684705435
+        },
+        "639199277a9178252d38c990": {
+            "completed": true,
+            "improveCompleteTimestamp": 1684705437
+        },
+        "639199277a9178252d38c991": {
+            "completed": true,
+            "improveCompleteTimestamp": 1684705438
+        },
+        "639199277a9178252d38c992": {
+            "completed": true,
+            "improveCompleteTimestamp": 1684705439
+        }
+    },
+    "Production": {
+        "5d5589c1f934db045e6c5492": {
+            "Progress": 0,
+            "inProgress": true,
+            "RecipeId": "5d5589c1f934db045e6c5492",
+            "Products": [],
+            "SkipTime": 0,
+            "ProductionTime": 16575,
+            "StartTimestamp": 1684705440
+        }
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "WARNING": "DO NOT MANUALLY CHANGE ANY OF THESE SETTINGS",
+    "!----!----!": "!----!----!",
+    "force_load": true,
+    "sysmem_offraid_position": "Streets.RuinedHouse",
+    "sysmem_multi_stash": true,
+    "sysmem_multi_hideout": true
+}
