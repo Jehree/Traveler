@@ -182,7 +182,7 @@ let me know if you have any clever ideas on where to add some more modded trader
 
 
 Source code for PTTExtracts.dll plugin
-
+ https://github.com/guillaumearm/PathToTarkov/tree/master/PTT-Extracts
 
 
 If you'd like to support my work, you can buy me a coffee![/tab]

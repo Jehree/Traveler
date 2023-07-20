@@ -5,7 +5,8 @@ been designed completely differently, new features have been added, etc. so keep
 
 Almost everything below is configurable. Change anything you don't like!
 
-
+Source code for PTTExtracts.dll plugin:
+https://github.com/guillaumearm/PathToTarkov/tree/master/PTT-Extracts
 
 :: New features that weren't in PTT! ::
 -The flea can be locked behind locations! By default it is available everywhere there is base game trader (except home).
