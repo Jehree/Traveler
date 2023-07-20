@@ -1,8 +1,0 @@
-{
-    "WARNING": "DO NOT MANUALLY CHANGE ANY `sysmem_` SETTING",
-    "!----!----!": "!----!----!",
-    "force_load": true,
-    "sysmem_offraid_position": "Interchange.Emercom--Streets.Underpass",
-    "sysmem_multi_stash": true,
-    "sysmem_multi_hideout": true
-}
