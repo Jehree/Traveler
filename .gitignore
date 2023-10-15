@@ -1,0 +1,3 @@
+src/*.js
+profiles/*
+!profiles/.profile backups/.HOW TO RESTORE.txt

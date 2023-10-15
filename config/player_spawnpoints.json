@@ -340,6 +340,26 @@
     "Zmeevsky Alley": {
       "Position": [176.868683, 0.7778812, 172.814636],
       "Rotation": 304.3322
+    },
+    "Expo Checkpoint": {
+      "Position": [215, -1.93, -88.75],
+      "Rotation": 304.3322
+    },
+    "Cardinal Appartments Parking": {
+      "Position": [103.6, -1.9, -155.3],
+      "Rotation": 304.3322
+    },
+    "Cardinal Appartments": {
+      "Position": [82.8, 3.97, -175.4],
+      "Rotation": 304.3322
+    },
+    "Crash Site": {
+      "Position": [269.3, 3.4, 427.25],
+      "Rotation": 87.62667
+    },
+    "Kamchatskya Arch": {
+      "Position": [254.4, -5.9, 50.5],
+      "Rotation": 304.3322
     }
   },
   "laboratory": {

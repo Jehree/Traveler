@@ -16,6 +16,7 @@ import * as path from "path";
 import * as fs from "fs";
 import * as config from "../config/config.json";
 
+import { InitUtils } from "./init-utils";
 import { StashController } from "./stash-controller";
 import { FileConstructors } from "./file-constructors";
 import { TravelController } from "./travel-controller";
@@ -36,6 +37,7 @@ const Hideout_Controller = new HideoutController()
 const Custom_Items = new CustomItems()
 const Utils = new MiscUtils()
 const Mark_FIR = new KikiMarkFIR()
+const Init = new InitUtils()
 
 class Mod implements IPreAkiLoadMod, IPostAkiLoadMod, IPostDBLoadMod
 {
@@ -70,21 +72,20 @@ class Mod implements IPreAkiLoadMod, IPostAkiLoadMod, IPostDBLoadMod
         Travel_Controller.setExfilParams(dbLocations)
         if (!config.post_raid_healing_enabled){dbTraders["54cb57776803fa99248b456e"].base.medic = false}
 
-        if (config.flea_purchases_are_FIR)
-        {dbRagfairConfig.dynamic.purchasesAreFoundInRaid = true}
+        if (config.flea_purchases_are_FIR) {dbRagfairConfig.dynamic.purchasesAreFoundInRaid = true}
 
-        if (config.trader_purchases_are_FIR)
-        {dbTraderConfig.purchasesAreFoundInRaid = true}
+        if (config.trader_purchases_are_FIR) {dbTraderConfig.purchasesAreFoundInRaid = true}
 
         if (config.disable_out_of_raid_quest_stash){
             Stash_Controller.disableOORQuestStash(dbItems)
-            Utils.disableOutOfRaidQuestStashLocales(dbLocales)
+            Init.disableOutOfRaidQuestStashLocales(dbLocales)
         }
         
-        Utils.noRunThrough(dbTables.globals)
-        Utils.questFixes(dbQuests)
-        Utils.changeExfilLocales(dbLocales)
-        Utils.changeTraderLocales(dbLocales)
+        Init.removeStashSizeBonusesFromDB(dbTables.hideout.areas)
+        Init.noRunThrough(dbTables.globals)
+        Init.questFixes(dbQuests)
+        Init.changeExfilLocales(dbLocales)
+        Init.changeTraderLocales(dbLocales)
     }
 
     public preAkiLoad(container: DependencyContainer): void {

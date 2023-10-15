@@ -56,8 +56,8 @@
 
         "//interchange": true,
             "NW Exfil": "Railway (to Customs, RR to Tarkov)",
-            "SE Exfil": "Emercom (to Streets, Underpass)",
-            "PP Exfil": "Power Station Car (to Streets, Underpass)",
+            "SE Exfil": "Emercom (to Streets, Expo CP)",
+            "PP Exfil": "Power Station Car (to Streets, Expo CP)",
             "Saferoom Exfil": "Saferoom (Goblin King)",
             "Hole Exfill": "",
             "Interchange Cooperation": "Survival Camp (Ragman)",
@@ -95,7 +95,7 @@
             "Exit1": "",
             "Exit2": "",
             "Exit3": "Depot Hermetic Door (Peacekeeper)",
-            "Exit4": "Checkpoint Fence (to Streets, Evac to Mil Base)",
+            "Exit4": "Checkpoint Fence (to Streets, Crash Site)",
 
         "//shoreline": true,
             "Tunnel": "Tunnel (to Lighthouse, Side Tunnel)",
@@ -116,13 +116,13 @@
             "Adm Basement": "Admin Basement (Skier)",
 
         "//tarkovstreets": true,
-            "E1": "Underpass (to Interchange, Emercom)",
+            "E1": "",
             "E2": "Sewer River (to Lab, Sewage Conduit)",
             "E3": "Ruined House (Mechanic)",
-            "E4": "Evac to Mil Base (to Reserve, Checkpoint Fence)",
+            "E4": "Crash Site (to Reserve, Checkpoint Fence)",
             "E5": "",
             "E6": "",
-            "E7_car": "",
+            "E7_car": "Expo CP (to Interchange, Emercom)",
             "E8_yard": "",
             "E9_sniper": "Klimov Street (Remote Home Access)",
 
@@ -137,7 +137,7 @@
             "UN Roadblock": "UN Roadblock (to Customs, Western CP Road)",
             "RUAF Gate": "",
             "ZB-014": "",
-            "South V-Ex": "Bridge Car (to Streets, Zmeevsky Alley *1way)",
+            "South V-Ex": "Bridge Car (to Streets, Kamchatskya St. *1way)",
             "Factory gate": "Factory Gate (to Factory, Med Tent)",
             "un-sec": "N. UN Roadblock (to Customs, Western CP Road)",
 
@@ -153,8 +153,8 @@
         "//misc locale changes": true,
             "UI/HealthTreatmentScreen_Description": "Out of raid healing: Choose what you would like to heal immediately.",
             "ragfair/Unlocked at character LVL {0}": "Flea access unlocked at level {0}. If unlock level shows as 420, this location has no Flea access.",
-            "63ab180c87413d64ae0ac20a description": "Young man, hello! How is your health? Nothing bothering you? The thing is, one of my messengers who transports the poor stranded people in the city is worried about the lack of an escort on the next route. Could you meet with him and go for a ride with him? I promise you won't be shortchanged! He'll be waiting for you at the underpass just south of Klimov Street.",
-            "63ab184ff627f540861d1185": "Survive and extract from Streets of Tarkov through Underpass"
+            "63ab180c87413d64ae0ac20a description": "Young man, hello! How is your health? Nothing bothering you? The thing is, one of my messengers who transports the poor stranded people in the city is worried about the lack of an escort on the next route. Could you meet with him and go for a ride with him? I promise you won't be shortchanged! He'll be waiting for you at the Expo Checkpoint at the North West corner of Streets of Tarkov.",
+            "63ab184ff627f540861d1185": "Survive and extract from Streets of Tarkov through the Expo Checkpoint"
         },
 
         "OOR_Quest_Stash_Disable":{

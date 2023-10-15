@@ -5,14 +5,11 @@ import { ILogger } from "@spt-aki/models/spt/utils/ILogger";
 import { Inventory } from "@spt-aki/models/eft/common/tables/IBotBase";
 import { ITemplateItem } from "@spt-aki/models/eft/common/tables/ITemplateItem";
 import { ItemHelper } from "@spt-aki/helpers/ItemHelper";
-import { IQuest } from "@spt-aki/models/eft/common/tables/IQuest";
-import { IGlobals } from "@spt-aki/models/eft/common/IGlobals";
 import * as path from "path";
 import * as fse from "fs-extra";
 import * as fs from "fs";
 
 import * as config from "../config/config.json";
-import * as exfilTooltips from "../config/exfil_tooltips.json";
 import { GetData } from "./useful-data";
 import { StashController } from "./stash-controller";
 import { HideoutController } from "./hideout-controller";
@@ -26,19 +23,6 @@ const Trader_Controller = new TradersController()
 export class MiscUtils{
     modPath: string = path.normalize(path.join(__dirname, ".."));
     profileFolderPath: string = path.normalize(path.join(__dirname, "..", "..", "..", "profiles"));
-
-    noRunThrough(dbGlobals: IGlobals):void{
-        dbGlobals.config.exp.match_end.survived_exp_requirement = 0;
-        dbGlobals.config.exp.match_end.survived_seconds_requirement = 0;
-    }
-
-    questFixes(dbQuests: Record<string, IQuest>):void{
-        
-        //change Dangerous Road quest to require an underpass extraction instead of streets car
-        //tweak to the locale in the extraction_tooltips.json file
-        const dangerousRoadQuest = dbQuests["63ab180c87413d64ae0ac20a"]
-        dangerousRoadQuest.conditions.AvailableForFinish[0]._props.counter.conditions[2]._props["exitName"] = "E1"
-    }
 
     uninstallTraveler(profile:IAkiProfile, profileFolderPath:string, statusesPath:string, dbItems:Record<string, ITemplateItem>, Item_Helper:ItemHelper):void{
 
@@ -154,51 +138,6 @@ export class MiscUtils{
                     profileInventory.items.splice(+itemBOT-1, 1)
                     logger.log("Duplicate item deleted from profile!", "red")
                 }
-            }
-        }
-    }
-
-    changeExfilLocales(dbLocales:Record<string, Record<string, string>>):void{
-
-        const locales = dbLocales[`${config.locale_language}`]
-        const exfilLocalesToChange = exfilTooltips.Extracts
-
-        for (const locName in exfilLocalesToChange){
-            if (exfilLocalesToChange[locName] !== ""){
-                locales[locName] = exfilLocalesToChange[locName]
-            }
-        }
-    }
-
-    disableOutOfRaidQuestStashLocales(dbLocales:Record<string, Record<string, string>>):void{
-
-        const locales = dbLocales[`${config.locale_language}`]
-        const stashLocalesToChange = exfilTooltips.OOR_Quest_Stash_Disable
-
-        for (const locKey in stashLocalesToChange){
-            if (stashLocalesToChange[locKey] !== ""){
-                locales[locKey] = stashLocalesToChange[locKey]
-            }
-        }
-    }
-
-    changeTraderLocales(dbLocales:Record<string, Record<string, string>>):void{
-
-        const locales = dbLocales[config.locale_language]
-        const configTraders = config.trader_config
-
-        for (const trName in configTraders){
-
-            const traderId = configTraders[trName].trader_id
-            const configTraderDesc = configTraders[trName].trader_description_text
-            const configTraderLoca = configTraders[trName].trader_location_text
-
-            if (configTraderDesc !== ""){
-                locales[`${traderId} Description`] = configTraderDesc
-            }
-
-            if (configTraderLoca !== ""){
-                locales[`${traderId} Location`] = configTraderLoca
             }
         }
     }

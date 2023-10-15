@@ -8,5 +8,10 @@
 		"recommendations": [
 			"dbaeumer.vscode-eslint"
 		]
+	},
+	"settings": {
+		"files.exclude": {
+			"src/*.js": true
+		}
 	}
 }

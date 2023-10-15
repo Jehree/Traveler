@@ -90,7 +90,6 @@ export class FileConstructors{
 
             const stashFileLayout = {
                 "Name": stashName,
-    
                 "Items": items
             }
 

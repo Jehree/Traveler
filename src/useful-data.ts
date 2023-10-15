@@ -29,7 +29,9 @@ export class GetData{
             "bitcoin farm": 20,
             "christmas tree": 21,
             "defective wall": 22,
-            "gym": 23
+            "gym": 23,
+            "gunstand primary": 24,
+            "gunstand secondary": 25
         }
         return hideoutTypeNumbers
     }
@@ -804,5 +806,14 @@ export class GetData{
                 return maps[m]
             }
         }
+    }
+
+    getStashIDsBySize():Array<string>{
+        return [
+            "566abbc34bdc2d92178b4576",
+            "5811ce572459770cba1a34ea",
+            "5811ce662459770f6f490f32",
+            "5811ce772459770e9e5f9532"
+        ]
     }
 }

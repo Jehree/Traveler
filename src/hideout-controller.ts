@@ -21,8 +21,8 @@ export class HideoutController{
 
         let thisHideoutStations
         let noHideoutHere:boolean
-        const allHideoutTypes = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]
-        const requiredHideoutTypes = [4,6,17,23]
+        const allHideoutTypes = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25]
+        const requiredHideoutTypes = [4,6,17,23,24,25]
         let thisHideoutTypeNumbers = requiredHideoutTypes //these 4 stations are needed or error go brr
 
         for (const hdKey in configHideouts){
@@ -132,6 +132,26 @@ export class HideoutController{
             return hideoutName
         } else if (nameOrPath === "path"){
             return hideoutPath
+        }
+    }
+
+    getStashLevel(offraidPos:string, profileFolderPath:string):number{
+
+        const hideoutFilePath = this.getHideoutNameOrPathFromOffraidPos(offraidPos, profileFolderPath, "path")
+
+        if (hideoutFilePath === "NoHideoutHere"){
+            console.error("Tried to access hideout file with an offraidPos that has no hideout!")
+            return
+        }
+
+        const hideoutFile = JSON.parse(fs.readFileSync(hideoutFilePath, "utf8"))
+        const areas = hideoutFile.Areas
+
+        for (const i in areas){
+            
+            if (areas[i].type === 3){
+                return areas.level
+            }
         }
     }
 }

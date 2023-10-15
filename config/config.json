@@ -200,7 +200,7 @@
             "size_v": 18,
             "access_via": ["Customs.MilBaseCP"]
         },
-        "Jaeger":{
+        "Jaeger_Stash":{
 
             "size_h": 10,
             "size_v": 18,
@@ -269,7 +269,9 @@
                 "booze": true,
                 "bitcoin farm": true,
                 "christmas tree": true,
-                "defective wall": true
+                "defective wall": true,
+                "gunstand primary": true,
+                "gunstand secondary": true
             }
         },
 
@@ -521,14 +523,14 @@
             }
         },
 
-        "Woods.Car-1w>-Streets.ZmeevskyAlley":{
+        "Woods.Car-1w>-Streets.KamchatskyaArch":{
 
             "access_via":{
                 "woods": ["South V-Ex"]
             },
 
             "can_infil_to":{
-                "tarkovstreets": "Zmeevsky Alley"
+                "tarkovstreets": "Kamchatskya Arch"
             }
         },
 
@@ -570,7 +572,7 @@
             }
         },
 
-        "Streets.EvacZone--Reserve.CPFence":{
+        "Streets.CrashSite--Reserve.CPFence":{
 
             "access_via":{
                 "rezervbase": ["Exit4"],
@@ -579,7 +581,7 @@
 
             "can_infil_to":{
                 "rezervbase": "CP Fence",
-                "tarkovstreets": "Evacuation Zone"
+                "tarkovstreets": "Crash Site"
             }
         },
 
@@ -629,7 +631,7 @@
             }
         },
 
-        "Interchange.Car-alt>-Streets.Underpass":{
+        "Interchange.Car-alt>-Streets.ExpoCP":{
 
             "access_via":{
                 "interchange": ["PP Exfil"]
@@ -637,20 +639,20 @@
 
             "can_infil_to":{
                 "interchange": "Interchange Vehicle Extract",
-                "tarkovstreets": "Underpass"
+                "tarkovstreets": "Expo Checkpoint"
             }
         },
 
-        "Interchange.Emercom--Streets.Underpass":{
+        "Interchange.Emercom--Streets.ExpoCP":{
 
             "access_via":{
                 "interchange": ["SE Exfil"],
-                "tarkovstreets": ["E1"]
+                "tarkovstreets": ["E7"]
             },
 
             "can_infil_to":{
                 "interchange": "Emercom",
-                "tarkovstreets": "Underpass"
+                "tarkovstreets": "Expo Checkpoint"
             }
         },
 
