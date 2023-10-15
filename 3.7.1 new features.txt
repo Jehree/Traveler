@@ -1,0 +1,14 @@
+compat with Streets expansion and new hideout stations
+
+multiple upgradable stashes
+any trader can be a medic
+checkpoint letter borked durability functionality removed
+
+various qol tweaks to config
+various backend code cleanup
+
+
+still to do:
+-include updated map
+-update license to non commercial
+-review hierarchies for changes. Split up the config file into multiple, move/ rename statuses and sysmem, etc. 

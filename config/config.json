@@ -249,14 +249,14 @@
         },
         "Interchange.Saferoom_Stash":{
             "upgradable": false,
-            "size_h": 50,
-            "size_v": 10,
+            "size_h": 10,
+            "size_v": 50,
             "access_via": ["Interchange.Saferoom"]
         },
         "Customs.ZB1013_Stash":{
             "upgradable": false,
-            "size_h": 50,
-            "size_v": 10,
+            "size_h": 10,
+            "size_v": 50,
             "access_via": ["Customs.ZB1013"]
         }
     },

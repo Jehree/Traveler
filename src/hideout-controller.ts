@@ -148,9 +148,8 @@ export class HideoutController{
         const areas = hideoutFile.Areas
 
         for (const i in areas){
-            
             if (areas[i].type === 3){
-                return areas.level
+                return areas[i].level
             }
         }
     }
