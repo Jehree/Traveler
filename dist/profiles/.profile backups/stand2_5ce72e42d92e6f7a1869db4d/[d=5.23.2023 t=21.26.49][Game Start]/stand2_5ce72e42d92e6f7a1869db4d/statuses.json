@@ -1,7 +1,0 @@
-{
-  "offraid_position": "Customs.FactoryFarCorner--Factory.Gate3",
-  "checkpoint": "Customs.Warehouse17",
-  "//NOTE: DO NOT MANUALLY CHANGE offraid_position WHILE THIS IS TRUE": "",
-  "//NOTE2: If you have just enabled or disabled multi_stash, load the game once before enabling this setting": "",
-  "disable_stash_load_on_game_start": false
-}
