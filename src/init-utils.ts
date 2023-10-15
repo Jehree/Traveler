@@ -3,6 +3,7 @@
 import { IQuest } from "@spt-aki/models/eft/common/tables/IQuest";
 import { IGlobals } from "@spt-aki/models/eft/common/IGlobals";
 import { IHideoutArea } from "@spt-aki/models/eft/hideout/IHideoutArea";
+import { ITrader } from "@spt-aki/models/eft/common/tables/ITrader";
 
 import * as config from "../config/config.json";
 import * as exfilTooltips from "../config/exfil_tooltips.json";
@@ -49,6 +50,24 @@ export class InitUtils{
 
             if (configTraderLoca !== ""){
                 locales[`${traderId} Location`] = configTraderLoca
+            }
+        }
+    }
+
+    setMedics(dbTraders: Record<string, ITrader>):void{
+
+        const configTraders = config.trader_config
+        for (const trader in configTraders){
+
+            if (!config.post_raid_healing_enabled){
+                const traderId = configTraders[trader].trader_id
+                dbTraders[traderId].base.medic = false
+                continue
+            }
+
+            if (configTraders[trader].is_medic){
+                const traderId = configTraders[trader].trader_id
+                dbTraders[traderId].base.medic = true
             }
         }
     }

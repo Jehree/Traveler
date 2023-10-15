@@ -141,4 +141,8 @@ export class MiscUtils{
             }
         }
     }
+
+    readFile(filePath:string):any{
+        return JSON.parse(fs.readFileSync(filePath, "utf8"))
+    }
 }

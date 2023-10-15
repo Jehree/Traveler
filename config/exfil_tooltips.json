@@ -158,7 +158,7 @@
         },
 
         "OOR_Quest_Stash_Disable":{
-            "These items will be lost if you do not survive in the next raid. You can move them to a special stash for quest items.": "Out of raid quest item stash disabled. They will be lost if you do die in raid.",
+            "These items will be lost if you do not survive in the next raid. You can move them to a special stash for quest items.": "Out of raid quest item stash disabled. Any quest items contained will be lost upon death.",
             "Quest items special stash (off-raid)": "Out of raid quest item stash disabled",
             "Transfer": "DISABLED"
         }

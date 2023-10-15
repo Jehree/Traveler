@@ -70,8 +70,6 @@ class Mod implements IPreAkiLoadMod, IPostAkiLoadMod, IPostDBLoadMod
         }
         Custom_Items.customVoucherItem(dbTables, jsonUtil, "checkpoint_voucher/checkpoint_voucher.bundle")
         Travel_Controller.setExfilParams(dbLocations)
-        if (!config.post_raid_healing_enabled){dbTraders["54cb57776803fa99248b456e"].base.medic = false}
-
         if (config.flea_purchases_are_FIR) {dbRagfairConfig.dynamic.purchasesAreFoundInRaid = true}
 
         if (config.trader_purchases_are_FIR) {dbTraderConfig.purchasesAreFoundInRaid = true}
@@ -86,6 +84,7 @@ class Mod implements IPreAkiLoadMod, IPostAkiLoadMod, IPostDBLoadMod
         Init.questFixes(dbQuests)
         Init.changeExfilLocales(dbLocales)
         Init.changeTraderLocales(dbLocales)
+        Init.setMedics(dbTraders)
     }
 
     public preAkiLoad(container: DependencyContainer): void {
@@ -266,9 +265,9 @@ class Mod implements IPreAkiLoadMod, IPostAkiLoadMod, IPostDBLoadMod
                     const profileFolderPath = `${this.modPath}/profiles/${profileFolderName}`
 
                     const statusesPath = `${profileFolderPath}/statuses.json`
-                    const statuses = JSON.parse(fs.readFileSync(statusesPath, "utf8"))
+                    let statuses = Utils.readFile(statusesPath)
                     const sysmemPath = `${profileFolderPath}/sysmem.json`
-                    const sysmem = JSON.parse(fs.readFileSync(sysmemPath, "utf8"))
+                    const sysmem = Utils.readFile(sysmemPath)
 
 
                     //get prev stash path, and save current stash to it (before changing offraid pos)
@@ -279,9 +278,8 @@ class Mod implements IPreAkiLoadMod, IPostAkiLoadMod, IPostDBLoadMod
                     else                     {Hideout_Controller.saveToHideoutFile(profile, config.home, profileFolderPath)}
 
                     //change offraid pos to new pos based on exit name & config
-                    const updateOffraidPosReturnObject = Travel_Controller.updateOffraidPos(info.exitName, statuses, statusesPath, profileInventory.items)
-                    statuses.offraid_position = updateOffraidPosReturnObject.newOffraidPos
-                    profileInventory.items = updateOffraidPosReturnObject.updatedProfileItems
+                    Travel_Controller.updateOffraidPos(info.exitName, statuses, statusesPath, profileInventory.items)
+                    statuses = Utils.readFile(statusesPath) //reread statuses file to get the updates in memory
 
                     //overwrite current stash with stash file from new offraid pos
                     if (config.multi_stash){
@@ -330,7 +328,7 @@ class Mod implements IPreAkiLoadMod, IPostAkiLoadMod, IPostDBLoadMod
                     const profileFolderPath = `${this.modPath}/profiles/${profileFolderName}`
                     const profileInventory = profile.characters.pmc.Inventory
                     const statusesPath = `${profileFolderPath}/statuses.json`
-                    const statuses = JSON.parse(fs.readFileSync(statusesPath, "utf8"))
+                    const statuses = Utils.readFile(statusesPath)
             
                     //save on profile/save
                     if (config.multi_stash){Stash_Controller.saveToStashFile(profileInventory.items, statuses.offraid_position, profileFolderPath, dbItems, Item_Helper)}

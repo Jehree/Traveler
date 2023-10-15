@@ -70,20 +70,4 @@ export class TradersController{
             }
         }
     }
-
-    //this doesn't work due to our checkpoint system :/
-    /*updatePostRaidHealing(offraidPos:string, dbTraders: Record<string, ITrader>):void{
-        
-        const postHealConfig = config.post_raid_healing
-
-        if (!postHealConfig.available_everywhere){
-
-            const traderIds = Get_Data.getTraderIdsByName()
-            const therapist = dbTraders[traderIds["therapist"]]
-
-            if (postHealConfig.access_via.includes(offraidPos)){
-                therapist.base.medic = true
-            } else {therapist.base.medic = false}
-        }
-    }*/
 }

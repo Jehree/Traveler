@@ -24,13 +24,8 @@ export class CustomItems{
         item._props.Height = 1
         item._props.Prefab.path = bundlePath
         item._props.ItemSound = "item_plastic_generic"
-        if (config.checkpoint_letter_consume_upon_death){
-            item._parent = "5c99f98d86f7745c314214b3" //key
-            item._props.MaximumNumberOfUsage = config.checkpoint_letter_number_of_uses
-        } else {
-            item._parent = "5447e0e74bdc2d3c308b4567" //spec item
-        }
-
+        item._parent = "5447e0e74bdc2d3c308b4567" //spec item
+        
 
         dbTables.templates.items[cpItemId] = item;
 

@@ -747,16 +747,21 @@ export class GetData{
                 "E4",
                 "E5",
                 "E6",
+                "E7",
                 "E7_car",
                 "E8_yard",
-                "E9_sniper"
+                "E9_sniper",
+                "Exit_E10_coop"
             ],
         
             scav: [
                 "scav_e1",
                 "scav_e2",
                 "scav_e3",
-                "scav_e4"
+                "scav_e4",
+                "scav_e5",
+                "scav_e7",
+                "scav_e8"
             ]
         }
         

@@ -25,9 +25,9 @@ export class StashController{
         this.removeStashSizeBonusesFromProfile(profile)
 
         let stashItemId:string = this.getStashNameOrPathFromOffraidPos(offraidPos, profileFolderPath, "name")
-        if (this.isStashProgressive(stashItemId)){
+        if (this.isStashUpgradable(stashItemId)){
             const stashStationLevel = Hideout_Controller.getStashLevel(offraidPos, profileFolderPath)
-            stashItemId = stashesOrderedBySize[stashStationLevel] ?? stashesOrderedBySize[0]
+            stashItemId = stashesOrderedBySize[stashStationLevel - 1] ?? stashesOrderedBySize[0]
         }// else do nothing because the stashItemId is already correct
 
         //set the stash _tpl
@@ -39,15 +39,14 @@ export class StashController{
         }
     }
 
-    isStashProgressive(stashItemId:string):boolean{
+    isStashUpgradable(stashItemId:string):boolean{
         if (stashItemId === "TempStash_NoItemsSaved"){return false}
-        if (config.stashes[stashItemId]?.size_h && config.stashes[stashItemId]?.size_v){return false}
+        if (!config.stashes[stashItemId].upgradable){return false}
         return true
     }
 
     removeStashSizeBonusesFromProfile(profile: IAkiProfile):void{
         //this may be needed in profiles created prior to Traveler install
-        const profileBonuses = profile.characters.pmc.Bonuses
         for (let i = profile.characters.pmc.Bonuses.length; i > 0; i--){
             if (profile.characters.pmc.Bonuses[i-1].type === "StashSize"){
                 profile.characters.pmc.Bonuses.splice(i-1, 1)

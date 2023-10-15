@@ -10,16 +10,16 @@
     "multi_stash": true,
     "multi_hideout": true,
     "locale_language": "en",
-    "trader_access_restriction": false,
+    "trader_access_restriction": true,
     "world_event_exfil_requirements": true,
     "post_raid_healing_enabled":true,
-    "disable_out_of_raid_quest_stash": false,
+    "disable_out_of_raid_quest_stash": true,
     "car_exfils":{
         "all_cars_free": false,
         "car_currency": "roubles",
         "customs": 0,
         "interchange": 0,
-        "lighthouse": 150000,
+        "lighthouse": 80000,
         "streets": 0,
         "woods": 0
     },
@@ -34,17 +34,25 @@
     "backup_on_raid_start": true,
     "backup_on_raid_end": true,
 
-    "enable_checkpoints": true,
-    "checkpoint_letter_consume_upon_death": true,
-    "checkpoint_letter_number_of_uses": 2,
+    "death_updates_offraid_position": true,
     "checkpoint_trader_config": {
         "trader": "therapist",
         "loyalty_level": 1,
         "currency": "roubles",
-        "price": 37500,
+        "price": 69420,
         "stock_amount": 999,
         "unlimited_stock": true
     },
+    "checkpoints":[
+        "Customs.Warehouse17",
+        "Customs.MilBaseCP",
+        "Woods.ScavBunker",
+        "Reserve.DepotHermeticDoor",
+        "Interchange.ScavCamp",
+        "Shoreline.AdminBasement",
+        "Streets.RuinedHouse"
+    ],
+
     
     "regen": {
         "health_regen":{
@@ -97,6 +105,7 @@
             "trader_description_text": "",
             "trader_location_text": "A warehouse somewhere in Customs.",
             "accessible_everywhere": false,
+            "is_medic": true,
             "access_via": ["Customs.Warehouse17"]
         },
         "Prapor": {
@@ -104,6 +113,7 @@
             "trader_description_text": "",
             "trader_location_text": "An abandoned military checkpoint in Customs.",
             "accessible_everywhere": false,
+            "is_medic": false,
             "access_via": ["Customs.MilBaseCP"]
         },
         "Skier": {
@@ -111,6 +121,7 @@
             "trader_description_text": "",
             "trader_location_text": "Somewhere in the basement of the Health Resort.",
             "accessible_everywhere": false,
+            "is_medic": false,
             "access_via": ["Shoreline.AdminBasement"]
         },
         "Jaeger": {
@@ -118,6 +129,7 @@
             "trader_description_text": "",
             "trader_location_text": "A bunker in the northern parts of Woods.",
             "accessible_everywhere": false,
+            "is_medic": true,
             "access_via": ["Woods.ScavBunker"]
         },
         "Mechanic": {
@@ -125,6 +137,7 @@
             "trader_description_text": "",
             "trader_location_text": "An old appartment building in Tarkov City.",
             "accessible_everywhere": false,
+            "is_medic": false,
             "access_via": ["Streets.RuinedHouse"]
         },
         "Ragman": {
@@ -132,6 +145,7 @@
             "trader_description_text": "",
             "trader_location_text": "A survivor camp outside the Mall.",
             "accessible_everywhere": false,
+            "is_medic": false,
             "access_via": ["Interchange.ScavCamp"]
         },
         "Peacekeeper": {
@@ -139,6 +153,7 @@
             "trader_description_text": "",
             "trader_location_text": "Holed up in an old supply bunker in the military base.",
             "accessible_everywhere": false,
+            "is_medic": false,
             "access_via": ["Reserve.DepotHermeticDoor"]
         },
         "Fence": {
@@ -146,6 +161,7 @@
             "trader_description_text": "",
             "trader_location_text": "Ever present in all locations. Fence sees all.",
             "accessible_everywhere": true,
+            "is_medic": false,
             "access_via": [""]
         },
         "Flea": {
@@ -159,9 +175,7 @@
                 "Woods.ScavBunker",
                 "Streets.RuinedHouse",
                 "Interchange.ScavCamp",
-                "Reserve.DepotHermeticDoor",
-
-                "Customs.Warehouse17"
+                "Reserve.DepotHermeticDoor"
             ]
         },
 
@@ -188,57 +202,67 @@
         }
     },
 
-    "//Stash Note": "Put no size params on a stash to make its size match the tier you have unlocked in the hideout",
-
+    "//Stash Note": "if upgradable = true the size will coorelate to the stash hideout station at that stashes location",
+   
     "stashes": {
         "Home_Stash":{
+            "upgradable": true,
+            "size_h": 0,
+            "size_v": 0,
             "access_via": ["Customs.Warehouse17", "Streets.Klimov"]
         },
         "Prapor_Stash":{
-
-            "size_h": 10,
-            "size_v": 18,
+            "upgradable": true,
+            "size_h": 0,
+            "size_v": 0,
             "access_via": ["Customs.MilBaseCP"]
         },
         "Jaeger_Stash":{
-
-            "size_h": 10,
-            "size_v": 18,
+            "upgradable": true,
+            "size_h": 0,
+            "size_v": 0,
             "access_via": ["Woods.ScavBunker"]
         },
         "Mechanic_Stash":{
-
-            "size_h": 10,
-            "size_v": 18,
+            "upgradable": true,
+            "size_h": 0,
+            "size_v": 0,
             "access_via": ["Streets.RuinedHouse"]
         },
         "Peacekeeper_Stash":{
-
-            "size_h": 10,
-            "size_v": 18,
+            "upgradable": true,
+            "size_h": 0,
+            "size_v": 0,
             "access_via": ["Reserve.DepotHermeticDoor"]
         },
         "Ragman_Stash":{
-
-            "size_h": 10,
-            "size_v": 18,
+            "upgradable": true,
+            "size_h": 0,
+            "size_v": 0,
             "access_via": ["Interchange.ScavCamp"]
         },
         "Skier_Stash":{
-
-            "size_h": 10,
-            "size_v": 18,
+            "upgradable": true,
+            "size_h": 0,
+            "size_v": 0,
             "access_via": ["Shoreline.AdminBasement"]
         },
         "Interchange.Saferoom_Stash":{
+            "upgradable": false,
+            "size_h": 50,
+            "size_v": 10,
             "access_via": ["Interchange.Saferoom"]
         },
         "Customs.ZB1013_Stash":{
+            "upgradable": false,
+            "size_h": 50,
+            "size_v": 10,
             "access_via": ["Customs.ZB1013"]
         }
     },
 
     "//Hideout Note": "The generator, water collector, air filter, and gym can't be disabled to prevent game crash.",
+    "//Hideout Note2": "include each station you want to include, or include all_stations = true followed by any you'd like to subtract = false",
 
     "hideouts":{
         "Home_Hideout":{
@@ -280,8 +304,7 @@
             "access_via":["Customs.MilBaseCP"],
             
             "stations": {
-                "all_stations": true,
-                "stash": false
+                "all_stations": true
             }
         },
 
@@ -290,8 +313,7 @@
             "access_via":["Shoreline.AdminBasement"],
             
             "stations": {
-                "all_stations": true,
-                "stash": false
+                "all_stations": true
             }
         },
 
@@ -300,8 +322,7 @@
             "access_via":["Woods.ScavBunker"],
             
             "stations": {
-                "all_stations": true,
-                "stash": false
+                "all_stations": true
             }
         },
 
@@ -310,8 +331,7 @@
             "access_via":["Streets.RuinedHouse"],
             
             "stations": {
-                "all_stations": true,
-                "stash": false
+                "all_stations": true
             }
         },
 
@@ -320,8 +340,7 @@
             "access_via":["Interchange.ScavCamp"],
             
             "stations": {
-                "all_stations": true,
-                "stash": false
+                "all_stations": true
             }
         },
 
@@ -330,8 +349,7 @@
             "access_via":["Reserve.DepotHermeticDoor"],
             
             "stations": {
-                "all_stations": true,
-                "stash": false
+                "all_stations": true
             }
         },
 
@@ -340,8 +358,7 @@
             "access_via":["Interchange.Saferoom"],
             
             "stations": {
-                "all_stations": true,
-                "stash": false
+                "all_stations": true
             }
         },
 
@@ -350,8 +367,7 @@
             "access_via":["Customs.ZB1013"],
             
             "stations": {
-                "all_stations": true,
-                "stash": false
+                "all_stations": true
             }
         }
     }, 
@@ -471,9 +487,7 @@
         },
 
         "Customs.Warehouse17":{
-
-            "is_checkpoint": true,
-            
+           
             "access_via":{
                 "bigmap": ["Warehouse 17"],
                 "lighthouse": [" V-Ex_light"]
@@ -498,8 +512,6 @@
         },
 
         "Customs.MilBaseCP":{
-
-            "is_checkpoint": true,
 
             "access_via":{
                 "bigmap": ["Shack"]
@@ -536,7 +548,7 @@
 
         "Woods.ScavBunker":{
 
-            "is_checkpoint": true,
+            
 
             "access_via":{
                 "woods": ["East Gate"]
@@ -620,7 +632,7 @@
 
         "Reserve.DepotHermeticDoor":{
 
-            "is_checkpoint": true,
+            
 
             "access_via":{
                 "rezervbase": ["Exit3"]
@@ -658,7 +670,7 @@
 
         "Interchange.ScavCamp":{
 
-            "is_checkpoint": true,
+            
 
             "access_via":{
                 "interchange": ["Interchange Cooperation"]
@@ -732,7 +744,7 @@
 
         "Shoreline.AdminBasement":{
 
-            "is_checkpoint": true,
+            
 
             "access_via":{
                 "shoreline": ["Adm Basement"]
@@ -821,7 +833,7 @@
 
         "Streets.RuinedHouse":{
 
-            "is_checkpoint": true,
+            
 
             "access_via":{
                 "tarkovstreets": ["E3"]

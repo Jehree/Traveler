@@ -8,7 +8,6 @@ import { container } from "tsyringe";
 import { ILogger } from "@spt-aki/models/spt/utils/ILogger";
 
 import { GetData } from "./useful-data";
-import { IAkiProfile } from "@spt-aki/models/eft/profile/IAkiProfile";
 import { IGlobals, Regeneration } from "@spt-aki/models/eft/common/IGlobals";
 import { Item } from "@spt-aki/models/eft/common/tables/IItem";
 
@@ -17,104 +16,73 @@ const logger = container.resolve<ILogger>("WinstonLogger");
 
 export class TravelController{
 
-    updateOffraidPos(exitName:string, statuses:any, statusesPath:string, profileItems: Item[]):any{
 
-        //change offraid pos to new pos based on exit name & config
-        const offraidPositions = config.offraid_positions
+    updateOffraidPos(exitName:string, statuses:any, statusesPath:string, profileItems: Item[]):void{
+
         let isDeath = false
-
         if (exitName === null){isDeath = true}
-        
+
         if (isDeath){
-
-            let whereToRespawn:string
-
-            if (config.enable_checkpoints){
-                const checkpointVoucherId = "checkpoint_letter_id"
-                const specSlotNames = [
-                    "SpecialSlot1",
-                    "SpecialSlot2",
-                    "SpecialSlot3"
-                ]
-
-                let noVoucherEquipped:boolean
-                for (let i = profileItems.length; i > 0; i--){
-                    if
-                    (
-                        specSlotNames.includes(profileItems[i-1].slotId) &&
-                        profileItems[i-1]._tpl === checkpointVoucherId &&
-                        statuses.checkpoint !== config.home
-                    ){
-                        whereToRespawn = statuses.checkpoint
-                        if (config.checkpoint_letter_consume_upon_death && whereToRespawn !== config.home){
-
-                            noVoucherEquipped = false
-
-
-                            if (profileItems[i-1].upd?.Key?.NumberOfUsages !== undefined){
-                                
-                                profileItems[i-1].upd.Key.NumberOfUsages += 1
-                                console.log(profileItems[i-1])
-                            } else {
-
-                                profileItems[i-1].upd["Key"] = {NumberOfUsages: 1}
-                                console.log(profileItems[i-1])
-                            }
-
-                            const usageMax = config.checkpoint_letter_number_of_uses
-                            if (profileItems[i-1].upd?.Key?.NumberOfUsages >= usageMax){
-
-                                console.log(profileItems[i-1])
-                                profileItems.splice(i-1, 1)
-                            }
-
-                            logger.log("Checkpoint voucher used! Respawning at last visited checkpoint", "yellow")
-
-                        } else {logger.log("Respawning at last visited checkpoint", "yellow")}
-                        break;
-
-                    } else {
-                        noVoucherEquipped = true
-                        whereToRespawn = config.home
-                    }
-                }
-                if (noVoucherEquipped){
-                    logger.log("No checkpoint voucher used, respawning at home", "yellow")
-                }
-
-            } else {whereToRespawn = statuses.offraid_position}
-
-            statuses.offraid_position = whereToRespawn
-            statuses.checkpoint = whereToRespawn
-            fs.writeFileSync(statusesPath, JSON.stringify(statuses, null, 4))
-
-        } else {
-            for (const pos in offraidPositions){
-
-                const accessViaMaps:object = offraidPositions[pos].access_via
-                for (const mapName in accessViaMaps){
-
-                    if (accessViaMaps[mapName].includes(exitName)){
-
-                        //set offraid pos to this one
-                        statuses.offraid_position = pos
-                        
-                        //save checkpoint if it is one
-                        if (offraidPositions[pos].is_checkpoint || pos === config.home){
-                            statuses.checkpoint = pos
-                        }
-                        fs.writeFileSync(statusesPath, JSON.stringify(statuses, null, 4))
-                    }
-                }
-            }
+            this.handleDeath(statuses, statusesPath, profileItems)
+            return
         }
 
-        
-        //this func returns the offraid_position and writes it to the file
-        //so it can be updated in server memory AND written at the same time
-        return {
-            newOffraidPos: statuses.offraid_position,
-            updatedProfileItems: profileItems
+        this.handleExtraction(exitName, statuses, statusesPath)
+    }
+
+    handleDeath(statuses:any, statusesPath:string, profileItems: Item[]):void{
+
+        if (!config.death_updates_offraid_position){
+            logger.log("death_updates_offraid_position disabled, offraid position remains: "+statuses.offraid_position, "yellow")
+            return
+        }
+
+        const checkpointVoucherId = "checkpoint_letter_id"
+        const specSlotNames = [
+            "SpecialSlot1",
+            "SpecialSlot2",
+            "SpecialSlot3"
+        ]
+        let checkpointVoucherEquipped = false
+
+        for (const item in profileItems){
+            if (!specSlotNames.includes(profileItems[item].slotId)){continue}
+            if (profileItems[item]._tpl !== checkpointVoucherId){continue}
+            
+            logger.log("Checkpoint voucher found! Respawning at: "+statuses.checkpoint, "yellow")
+            checkpointVoucherEquipped = true
+            statuses.offraid_position = statuses.checkpoint
+            fs.writeFileSync(statusesPath, JSON.stringify(statuses, null, 4))
+            break
+        }
+
+        if (!checkpointVoucherEquipped){
+            logger.log("No checkpoint voucher equipped, respawning at home", "yellow")
+            statuses.offraid_position = config.home
+            statuses.checkpoint = config.home
+            fs.writeFileSync(statusesPath, JSON.stringify(statuses, null, 4))
+        }
+    }
+
+    handleExtraction(exitName:string, statuses:any, statusesPath:string):void{
+
+        const offraidPositions = config.offraid_positions
+        for (const pos in offraidPositions){
+
+            const accessViaMaps:object = offraidPositions[pos].access_via
+            for (const mapName in accessViaMaps){
+
+                if (!accessViaMaps[mapName].includes(exitName)){continue}
+
+                //set offraid pos to this one
+                statuses.offraid_position = pos
+                
+                //save checkpoint if it is one
+                if (config.checkpoints.includes(pos) || pos === config.home){
+                    statuses.checkpoint = pos
+                }
+                fs.writeFileSync(statusesPath, JSON.stringify(statuses, null, 4))
+            }
         }
     }
 
@@ -132,7 +100,8 @@ export class TravelController{
             const rotation = playerSpawnpoints[mapName]?.[infilPoint]?.Rotation
 
             if (positionData === undefined){
-                logger.log("[Traveler]: Invalid infil point data! Check the config for errors!", "magenta")
+                logger.log("[Traveler]: Invalid infil point name! Check the config for errors!", "red")
+                logger.log("[Traveler]: The infil points used in can_infil_to must match the names in player_spawnpoints.json", "red")
             }
             mapBase.SpawnPointParams.push(this.spawnPointParamConstructor(infilPoint, positionData, rotation))
 
@@ -144,32 +113,31 @@ export class TravelController{
         const validMapNames = Get_Data.getAllValidMapnames()
 
         for (const mapName in dbLocations){
-            if (validMapNames.includes(mapName)){
+            if (!validMapNames.includes(mapName)){continue}
 
-                const spawnPointParams = dbLocations[mapName]?.base?.SpawnPointParams
+            const spawnPointParams = dbLocations[mapName]?.base?.SpawnPointParams
+            if (spawnPointParams === undefined){continue}
+
+            //remove Player from Categories all SpawnPointParams
+            //if Categories are empty after removing Player, remove the whole Param
+            for (let param = spawnPointParams.length; param > 0; param--){
+
+                const categories = spawnPointParams[param-1].Categories
+                for (let i = categories.length; i > 0; i--){
+
                 
-                //remove Player from Categories all SpawnPointParams
-                //if Categories are empty after removing Player, remove the whole Param
-                if (spawnPointParams !== undefined){
-                    for (let param = spawnPointParams.length; param > 0; param--){
+                    if (categories[i-1] === "Player"){
 
-                        const categories = spawnPointParams[param-1].Categories
-                        for (let i = categories.length; i > 0; i--){
+                        spawnPointParams[param-1].Categories.splice(i-1,1)
+                    }
 
-                        
-                            if (categories[i-1] === "Player"){
+                    if (categories.length === 0){
 
-                                spawnPointParams[param-1].Categories.splice(i-1,1)
-                            }
-
-                            if (categories.length === 0){
-
-                                dbLocations[mapName].base.SpawnPointParams.splice(param-1, 1)
-                            }
-                        }
+                        dbLocations[mapName].base.SpawnPointParams.splice(param-1, 1)
                     }
                 }
             }
+            
         }
     }
 
