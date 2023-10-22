@@ -3,7 +3,7 @@
 
     "//Uninstall Note1": "To uninstall, set uninstall to true and load the game all the way to your stash once.",
     "//Uninstall Note2": "This will delete all custom items added by Traveler and load your home stash and hideout.",
-    "//Uninstall Note3": "ONLY your home stash and hideout will be saved for use after removing Traveler from your mods folder.",
+    "//Uninstall Note3": "ONLY  your home stash and hideout will be saved for use after removing Traveler from your mods folder.",
     "uninstall": false,
 
     "home": "Customs.Warehouse17",
