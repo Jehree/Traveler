@@ -480,6 +480,26 @@ export class GetData{
                 "passiveBonusesEnabled": true,
                 "slots": [],
                 "type": 23
+            },
+            {
+                "type": 24,
+                "level": 0,
+                "active": true,
+                "passiveBonusesEnabled": true,
+                "completeTime": 0,
+                "constructing": false,
+                "slots": [],
+                "lastRecipe": ""
+            },
+            {
+                "type": 25,
+                "level": 0,
+                "active": true,
+                "passiveBonusesEnabled": true,
+                "completeTime": 0,
+                "constructing": false,
+                "slots": [],
+                "lastRecipe": ""
             }
         ]
 

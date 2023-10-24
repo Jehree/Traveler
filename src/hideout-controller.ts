@@ -21,9 +21,9 @@ export class HideoutController{
 
         let thisHideoutStations
         let noHideoutHere:boolean
-        const allHideoutTypes = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25]
+        const allHideoutTypes = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25]
         const requiredHideoutTypes = [4,6,17,23,24,25]
-        let thisHideoutTypeNumbers = requiredHideoutTypes //these 4 stations are needed or error go brr
+        let thisHideoutTypeNumbers = requiredHideoutTypes //these stations are needed or error go brr
 
         for (const hdKey in configHideouts){
             if (configHideouts[hdKey].access_via.includes(offraidPos)){
@@ -68,22 +68,23 @@ export class HideoutController{
 
         const hideoutFilePath = this.getHideoutNameOrPathFromOffraidPos(offraidPos, profileFolderPath, "path")
 
-        if (hideoutFilePath !== "NoHideoutHere"){
-            const hideoutFile = JSON.parse(fs.readFileSync(hideoutFilePath, "utf8"))
-            const profileHideoutElement = profile.characters.pmc.Hideout
-            const areas = profileHideoutElement.Areas
-            const improvements = profileHideoutElement.Improvements
-            const production = profileHideoutElement.Production
+        if (hideoutFilePath === "NoHideoutHere") return
+
+        const hideoutFile = JSON.parse(fs.readFileSync(hideoutFilePath, "utf8"))
+        const profileHideoutElement = profile.characters.pmc.Hideout
+        const areas = profileHideoutElement.Areas
+        const improvements = profileHideoutElement.Improvements
+        const production = profileHideoutElement.Production
 
 
-            //overwrite hideout file
-            hideoutFile.Areas = areas
-            hideoutFile.Improvements = improvements
-            hideoutFile.Production = production
+        //overwrite hideout file
+        hideoutFile.Areas = areas
+        hideoutFile.Improvements = improvements
+        hideoutFile.Production = production
 
-            //write back to the hidout file
-            fs.writeFileSync(hideoutFilePath, JSON.stringify(hideoutFile, null, 4))
-        }
+        //write back to the hideout file
+        fs.writeFileSync(hideoutFilePath, JSON.stringify(hideoutFile, null, 4))
+        
     }
 
     loadHideoutFile(profile:IAkiProfile, offraidPos:string, profileFolderPath:string):Hideout{

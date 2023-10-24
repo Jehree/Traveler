@@ -1,5 +1,5 @@
 {
-    "//Note": "Valid  map and exfil names can be found in the src/useful-data.ts file",
+    "//Note": "Valid  map and exfil names can be found in the config/valid_map_and_exfil_names.json file",
 
     "//Uninstall Note1": "To uninstall, set uninstall to true and load the game all the way to your stash once.",
     "//Uninstall Note2": "This will delete all custom items added by Traveler and load your home stash and hideout.",
@@ -184,6 +184,7 @@
             "trader_description_text": "",
             "trader_location_text": "In the saferoom underneath the mall.",
             "accessible_everywhere": false,
+            "is_medic": false,
             "access_via": ["Interchange.Saferoom"]
         },
         "Broker": {
@@ -191,6 +192,7 @@
             "trader_description_text": "",
             "trader_location_text": "In a bunker on Customs with a power locked door.",
             "accessible_everywhere": false,
+            "is_medic": false,
             "access_via": ["Customs.ZB1013"]
         },
         "Moron DRIP Trader": {
@@ -198,6 +200,7 @@
             "trader_description_text": "",
             "trader_location_text": "An old appartment building in Tarkov City.",
             "accessible_everywhere": false,
+            "is_medic": false,
             "access_via": ["Streets.RuinedHouse"]
         }
     },

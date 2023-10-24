@@ -28,6 +28,8 @@ import { KikiMarkFIR } from "./kiki-markfir";
 import { ConfigTypes } from "@spt-aki/models/enums/ConfigTypes";
 import { IRagfairConfig } from "@spt-aki/models/spt/config/IRagfairConfig";
 import { ITraderConfig } from "@spt-aki/models/spt/config/ITraderConfig";
+import { ILocationBase } from "@spt-aki/models/eft/common/ILocationBase";
+import { ILocations } from "@spt-aki/models/spt/server/ILocations";
 
 const Stash_Controller = new StashController()
 const File_Constructors = new FileConstructors()
@@ -78,7 +80,7 @@ class Mod implements IPreAkiLoadMod, IPostAkiLoadMod, IPostDBLoadMod
             Stash_Controller.disableOORQuestStash(dbItems)
             Init.disableOutOfRaidQuestStashLocales(dbLocales)
         }
-        
+       
         Init.removeStashSizeBonusesFromDB(dbTables.hideout.areas)
         Init.noRunThrough(dbTables.globals)
         Init.questFixes(dbQuests)
@@ -369,6 +371,26 @@ class Mod implements IPreAkiLoadMod, IPostAkiLoadMod, IPostDBLoadMod
             }],
             "aki"
         );
+    }
+
+    logAllMapAndExtractNames(dbLocations:ILocations):void{
+        const extractList = {}
+        for (const loc in dbLocations){
+
+            const thisLocExits = dbLocations[loc]?.base?.exits
+            if (!thisLocExits) continue
+
+            extractList[loc] = []
+
+            for (const e in thisLocExits){
+                const thisExit = thisLocExits[e]
+                extractList[loc].push(thisExit.Name)
+            }
+            
+        }
+
+        console.log(extractList)
+
     }
 }
 module.exports = {mod: new Mod()}
